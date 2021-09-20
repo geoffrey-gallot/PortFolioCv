@@ -40,6 +40,9 @@ body {
     height: 32rem;
 }
 
+/* Corps de la page
+  -------------------------------------------------- */
+
 .cvForm{
     display: flex;
     flex-direction: column;

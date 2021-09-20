@@ -11,45 +11,47 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
+      {# Mise en place carousel des projets et experience les plus significative avec bdd #}
+
       <div class="carousel-item active">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveaspectratio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-        {# Mise en place carousel des projets et experience les plus significative avec bdd #}
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
+            <h1>Geoffrey Gallot</h1>
+            <p>developpeur Web et Web mobile</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#">Sign up today</a>
+              <a class="btn btn-lg btn-primary" href="#">Télécharger Mon CV</a>
             </p>
           </div>
         </div>
       </div>
+
       <div class="carousel-item">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveaspectratio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
         <div class="container">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <h1>Mon projets IOT</h1>
+            <p>Arrosage Automatique géré par arduino et administré par une interface web.</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#">Learn more</a>
+              <a class="btn btn-lg btn-primary" href="#">En savoir plus</a>
             </p>
           </div>
         </div>
       </div>
+
       <div class="carousel-item">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveaspectratio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <h1>Projet Professionnel en cours</h1>
+            <p>Petite description du projet</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#">Browse gallery</a>
+              <a class="btn btn-lg btn-primary" href="#">En savoir plus</a>
             </p>
           </div>
         </div>
       </div>
+
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -159,28 +161,30 @@
     <div class="row">
       <h3 class="text-center mb-5">Portfolio</h3>
     </div>
-    <div class="row">
-      <section class="row linePortFolio mb-3">
-        <div class="com-md-1"></div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="com-md-1"></div>
-      </section>
-      
-      <section class="row linePortFolio mt-3">
-        <div class="com-md-1"></div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="col-md-2 portFolio">Projet</div>
-        <div class="com-md-1"></div>
-      </section>
-    </div>
-    
+    {# pagination en js pour eviter le rechagement de la page complete #}
+    <section class="row">
+      <div class="row">
+        <section class="row linePortFolio mb-5">
+          <div class="com-md-1"></div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="com-md-1"></div>
+        </section>
+
+        <section class="row linePortFolio mt-5">
+          <div class="com-md-1"></div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="col-md-2 portFolio">Projet</div>
+          <div class="com-md-1"></div>
+        </section>
+      </div>
+    </section>
     <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
@@ -190,7 +194,41 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <h5 class="text-center">Me contacter</h5>
-        formulaire
+
+        <div class="row">
+          <div class="col">
+            <label for="ContactPrenom" class="form-label">Prenom</label>
+            <input type="text" id="contactPrenom" class="form-control" placeholder="First name" aria-label="First name">
+          </div>
+          <div class="col">
+            <label for="ContactNom" class="form-label">Nom</label>
+            <input type="text" id="contactNom" class="form-control" placeholder="Last name" aria-label="Last name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="ContactSociete" class="form-label">Société</label>
+            <input type="text" id="contactSociete" class="form-control" placeholder="Last name" aria-label="Last name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="contactEmail" class="form-label">E-mail</label>
+            <input id="contactEmail" class="form-control" type="text" placeholder="E-mail" aria-label="default input example">
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Motif</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <input type="button" class="btn btn-secondary" value="Envoyer">
+          </div>
+          
+        </div>
       </div>
       <div class="col-md-3"></div>
     </div>
