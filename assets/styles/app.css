@@ -56,6 +56,24 @@ body {
     transform: translateY(+50px);
 }
 
+.linePortFolio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.portFolio{
+    height: 100px;
+    width: 100px;
+    background-color: #5a5a5a;
+    transition: transform 0.75s;
+    color: lightgrey;
+    text-align: center;
+}
+
+.portFolio:hover{
+    transform: scale(1.5);
+}
 
 /* MARKETING CONTENT
   -------------------------------------------------- */
@@ -89,7 +107,7 @@ body {
 
 /* Thin out the marketing headings */
 .featurette-heading {
-    font-weight: 300;
+    /* font-weight: 300; */
     line-height: 1;
     /* rtl:remove */
     letter-spacing: -.05rem;
