@@ -19,6 +19,18 @@ class ProjetProRepository extends ServiceEntityRepository
         parent::__construct($registry, ProjetPro::class);
     }
 
+    /**
+     * @return ProjetPro[]
+     */
+    public function findLastProjetPro($nbr)
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id','DESC')
+            ->setMaxResults($nbr)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return ProjetPro[] Returns an array of ProjetPro objects
     //  */

@@ -66,14 +66,17 @@ body {
 }
 
 .portFolio{
-    height: 100px;
-    width: 100px;
-    background-color: #5a5a5a;
     transition: transform 0.75s;
-    color: lightgrey;
-    text-align: center;
 }
-
+.portFolio img{
+    border-radius: 20px;
+}
+.portFolio h5{
+    width: 150px;
+    word-wrap: normal;
+    position: absolute;
+    top: 0;
+}
 .portFolio:hover{
     transform: scale(1.5);
 }

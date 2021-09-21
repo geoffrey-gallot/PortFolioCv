@@ -19,6 +19,18 @@ class ProjetPersoRepository extends ServiceEntityRepository
         parent::__construct($registry, ProjetPerso::class);
     }
 
+    /**
+     * @return ProjetPerso[]
+     */
+    public function findLastProjetPerso($nbr)
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id','DESC')
+            ->setMaxResults($nbr)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return ProjetPerso[] Returns an array of ProjetPerso objects
     //  */
