@@ -30,8 +30,9 @@
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveaspectratio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
         <div class="container">
           <div class="carousel-caption">
-            <h1>Mon projets IOT</h1>
-            <p>Arrosage Automatique géré par arduino et administré par une interface web.</p>
+            {# affichage carousel projet perso en cours #}
+            <h1>{{lastProjetPersoEntete.0.entitled}}</h1>
+            <p>{{lastProjetPersoEntete.0.description}}</p>
             <p>
               <a class="btn btn-lg btn-primary" href="#">En savoir plus</a>
             </p>
@@ -43,8 +44,8 @@
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveaspectratio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>{{lastExp.0.entitled}}</h1>
-            <p>{{lastExp.0.description}}</p>
+            <h1>{{lastProjetProEntete.0.entitled}}</h1>
+            <p>{{lastProjetProEntete.0.description}}</p>
             <p>
               <a class="btn btn-lg btn-primary" href="#">En savoir plus</a>
             </p>
@@ -91,51 +92,34 @@
       <section class="col-md-6 cvForm">
         {% for formation in formations %}
           <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
-            <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-          <h4> {{formation.entitled}} </h4>
-          <p>{{formation.startDate | date('d-m-y')}} / 
-          {{formation.endDate | date('d-m-y')}}</p>
-        </div>
+            <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
+              <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+            </svg>
+            <h4>
+              {{formation.entitled}}
+            </h4>
+            <p>{{formation.startDate | date('d-m-y')}}
+              /
+              {{formation.endDate | date('d-m-y')}}</p>
+          </div>
         {% endfor %}
       </section>
 
       <section class="col-md-6 cvExp">
         {% for exp in experiences %}
           <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
-            <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-          <h4>{{exp.entitled}}</h4>
-          <p>{{exp.startDate | date('d-m-y')}} / 
-          {{exp.endDate | date('d-m-y')}}</p>
-        </div>
+            <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
+              <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+            </svg>
+            <h4>{{exp.entitled}}</h4>
+            <p>{{exp.startDate | date('d-m-y')}}
+              /
+              {{exp.endDate | date('d-m-y')}}</p>
+          </div>
         {% endfor %}
-        
-        {# <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
-            <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-          <h4>Experience professionnel</h4>
-        </div>
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
-            <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-          <h4>Experience professionnel</h4>
-        </div>
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveaspectratio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
-            <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-          <h4>Experience professionnel</h4>
-        </div> #}
+
       </section>
     </div>
     <!-- /.row -->
@@ -150,23 +134,30 @@
     {# pagination en js pour eviter le rechagement de la page complete #}
     <section class="row">
       <div class="row">
+        {# projet Professionnel #}
         <section class="row linePortFolio mb-5">
           <div class="com-md-1"></div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
+          {% for projet in lastProjetPro %}
+            <div class="col-md-2 portFolio">
+                <a href="#" class="text-center text-dark">
+                  <img src="https://picsum.photos/150" alt="">
+                  <h5 >{{projet.entitled}}</h5>
+                </a>
+            </div>
+          {% endfor %}
           <div class="com-md-1"></div>
         </section>
-
+        {# projet Personnel #}
         <section class="row linePortFolio mt-5">
           <div class="com-md-1"></div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
-          <div class="col-md-2 portFolio">Projet</div>
+          {% for projet in lastProjetPerso %}
+            <div class="col-md-2 portFolio">
+                <a href="#" class="text-center text-dark">
+                  <img src="https://picsum.photos/150" alt="">
+                  <h5 >{{projet.entitled}}</h5>
+                </a>
+            </div>
+          {% endfor %}
           <div class="com-md-1"></div>
         </section>
       </div>
@@ -213,7 +204,7 @@
           <div class="col-2">
             <input type="button" class="btn btn-secondary" value="Envoyer">
           </div>
-          
+
         </div>
       </div>
       <div class="col-md-3"></div>
