@@ -52,11 +52,10 @@
           <a href="#">Back to top</a>
         </p>
         <p>&copy; Powered by Symfony &middot;
-          <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+          {% for link in links %}
+            <a href="{{link.href}}"><i class="{{link.style}}"></i></a>
           &middot;
-          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-          &middot;
-          <a href="#"><i class="fab fa-github fa-2x"></i></a>
+          {% endfor %}
         </p>
       </footer>
     </main>
