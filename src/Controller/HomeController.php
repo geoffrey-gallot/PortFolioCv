@@ -6,6 +6,7 @@ use App\Repository\ProjetProRepository;
 use App\Repository\ProjetPersoRepository;
 use App\Repository\CuriculumExpRepository;
 use App\Repository\CuriculumFormRepository;
+use App\Repository\LinksRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,18 +18,21 @@ class HomeController extends AbstractController
     private CuriculumExpRepository $curiculumExpRepository;
     private ProjetProRepository $projetProRepository;
     private ProjetPersoRepository $projetPersoRepository;
+    private LinksRepository $linkRepository;
 
 
     public function __construct(
         CuriculumFormRepository $curiculumFormRepository,
         CuriculumExpRepository $curiculumExpRepository,
         ProjetProRepository $projetProRepository,
-        ProjetPersoRepository $projetPersoRepository
+        ProjetPersoRepository $projetPersoRepository,
+        LinksRepository $linksRepository
     ) {
         $this->curiculumFormRepository = $curiculumFormRepository;
         $this->curiculumExpRepository = $curiculumExpRepository;
         $this->projetProRepository = $projetProRepository;
         $this->projetPersoRepository = $projetPersoRepository;
+        $this->linkRepository = $linksRepository;
     }
 
     /**
@@ -43,6 +47,7 @@ class HomeController extends AbstractController
         $projetProEntete = $this->projetProRepository->findLastProjetPro(1);
         $projetPerso = $this->projetPersoRepository->findLastProjetPerso(5);
         $projetPersoEntete = $this->projetPersoRepository->findLastProjetPerso(1);
+        $links = $this->linkRepository->findAll();
 
         return $this->render('home/index.html.twig', [
             'formations' => $curiculumForm,
@@ -52,6 +57,7 @@ class HomeController extends AbstractController
             'lastProjetProEntete' => $projetProEntete,
             'lastProjetPerso' => $projetPerso,
             'lastProjetPersoEntete' => $projetPersoEntete,
+            'links' => $links,
         ]);
     }
 }

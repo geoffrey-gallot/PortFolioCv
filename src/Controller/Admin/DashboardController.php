@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\CuriculumExp;
 use App\Entity\CuriculumForm;
+use App\Entity\Links;
 use App\Entity\ProjetPerso;
 use App\Entity\ProjetPro;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -34,5 +35,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Experience', 'fas fa-list', CuriculumExp::class);
         yield MenuItem::linkToCrud('Projet Perso', 'fas fa-list', ProjetPerso::class);
         yield MenuItem::linkToCrud('Projet Pro', 'fas fa-list', ProjetPro::class);
+        yield MenuItem::linkToCrud('Liens', 'fas fa-list', Links::class);
     }
 }
