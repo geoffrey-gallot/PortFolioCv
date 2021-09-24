@@ -2,16 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Links;
+use App\Entity\AboutMe;
+use App\Entity\ProjetPro;
+use App\Entity\ProjetPerso;
 use App\Entity\CuriculumExp;
 use App\Entity\CuriculumForm;
-use App\Entity\Links;
-use App\Entity\ProjetPerso;
-use App\Entity\ProjetPro;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -36,5 +37,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Projet Perso', 'fas fa-list', ProjetPerso::class);
         yield MenuItem::linkToCrud('Projet Pro', 'fas fa-list', ProjetPro::class);
         yield MenuItem::linkToCrud('Liens', 'fas fa-list', Links::class);
+        yield MenuItem::linkToCrud('A propos', 'fas fa-list', AboutMe::class);
     }
 }

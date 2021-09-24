@@ -74,15 +74,9 @@
         A Propos
       </h3>
       <p class="container">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro iste illo, eaque quasi, voluptate pariatur molestias deserunt ad laboriosam voluptatum maxime veritatis iure quaerat ullam magnam inventore dolore totam aspernatur!
-        <br>
-        <br>
-        Animi distinctio beatae architecto sequi. Minima beatae suscipit facere expedita, veniam repellendus. Earum tempore, quisquam quidem, corporis aliquid, provident nihil asperiores reprehenderit minima quam eaque rem sapiente nemo quia eligendi? Ut cumque nam similique est tempora officiis, animi porro iure, atque fugiat enim pariatur natus! Fugit obcaecati et magnam, nobis quos tempora impedit culpa molestiae labore temporibus architecto aliquam repellat.
-        <br>
-        <br>
-        Adipisci harum odio minus sit officiis enim sequi. Deleniti debitis molestias labore nihil, incidunt rerum exercitationem velit dignissimos optio explicabo sint impedit libero quas numquam, delectus eum modi dolorum. Fugiat! Ea enim quos architecto ab, maxime commodi harum sapiente soluta at, sed pariatur expedita id nihil in rem debitis? Expedita tenetur sit ratione quam aspernatur rem dolorem voluptatem aliquid harum!
-        <br><br>
-        Dignissimos excepturi perferendis ullam facilis deserunt quas? Magnam aut ea magni ipsum vel beatae unde. A pariatur quasi nulla unde dolor laborum fuga eum nobis exercitationem cupiditate eos, odio ducimus! Quasi minus sed quos dicta obcaecati, voluptatem quidem enim, quam quas minima placeat quis ducimus non odit maiores, atque debitis. Quidem delectus, dolorem sed unde nemo animi ab illo eaque.
+        {% for para in aboutMe %}
+          {{para.aboutMe}}<br><br>
+        {% endfor %}
       </p>
     </div>
 
@@ -113,6 +107,7 @@
               <title>Placeholder</title><rect width="100%" height="100%" fill="#777"/>
               <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
             </svg>
+            
             <h4>{{exp.entitled}}</h4>
             <p>{{exp.startDate | date('d-m-y')}}
               /
@@ -134,28 +129,34 @@
     {# pagination en js pour eviter le rechagement de la page complete #}
     <section class="row">
       <div class="row">
+
         {# projet Professionnel #}
         <section class="row linePortFolio mb-5">
           <div class="com-md-1"></div>
           {% for projet in lastProjetPro %}
             <div class="col-md-2 portFolio">
-                <a href="#" class="text-center text-dark">
-                  <img src="https://picsum.photos/150" alt="">
-                  <h5 >{{projet.entitled}}</h5>
-                </a>
+              <a href="#" class="text-center text-dark">
+                <img src="https://picsum.photos/150" alt="">
+                <h5>
+                  {{projet.entitled}}
+                </h5>
+              </a>
             </div>
           {% endfor %}
           <div class="com-md-1"></div>
         </section>
+
         {# projet Personnel #}
         <section class="row linePortFolio mt-5">
           <div class="com-md-1"></div>
           {% for projet in lastProjetPerso %}
             <div class="col-md-2 portFolio">
-                <a href="#" class="text-center text-dark">
-                  <img src="https://picsum.photos/150" alt="">
-                  <h5 >{{projet.entitled}}</h5>
-                </a>
+              <a href="#" class="text-center text-dark">
+                <img src="https://picsum.photos/150" alt="">
+                <h5 >
+                  {{projet.entitled}}
+                </h5>
+              </a>
             </div>
           {% endfor %}
           <div class="com-md-1"></div>
