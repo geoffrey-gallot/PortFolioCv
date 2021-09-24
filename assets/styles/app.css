@@ -71,7 +71,7 @@ body {
 .portFolio img{
     border-radius: 20px;
 }
-.portFolio h5{
+.portFolio h5, .portFolio p{
     width: 150px;
     word-wrap: normal;
     position: absolute;
