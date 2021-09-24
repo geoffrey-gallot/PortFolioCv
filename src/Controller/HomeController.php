@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Notification\ContactNotification;
 use App\Repository\AboutMeRepository;
 use App\Repository\ProjetProRepository;
 use App\Repository\ProjetPersoRepository;
@@ -11,6 +14,7 @@ use App\Repository\LinksRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
@@ -42,7 +46,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(Request $request, ContactNotification $notification): Response
     {
         $curiculumForm = $this->curiculumFormRepository->findAll();
         $curiculumExp = $this->curiculumExpRepository->findAll();
@@ -53,6 +57,17 @@ class HomeController extends AbstractController
         $projetPersoEntete = $this->projetPersoRepository->findLastProjetPerso(1);
         $links = $this->linkRepository->findAll();
         $abouteMe = $this->aboutMeRepository->findAll();
+
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $notification->notify($contact);
+            $this->addFlash('success', 'Votre demande de contact a bien été envoyée');
+            return $this->redirectToRoute('home');
+        }
         
 
         return $this->render('home/index.html.twig', [
@@ -65,6 +80,7 @@ class HomeController extends AbstractController
             'lastProjetPersoEntete' => $projetPersoEntete,
             'links' => $links,
             'aboutMe' => $abouteMe,
+            'form' => $form->createView(),
         ]);
     }
 }
